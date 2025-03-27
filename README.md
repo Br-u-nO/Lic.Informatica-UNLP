@@ -1,0 +1,1 @@
+Soy Bruno Bauly, estudiante de la carrera Licenciatura en Informatica de la UNLP. Al comienzo de mi segundo año estoy comenzando a guardar mis codigos y teoría en este repositorio, ojala te sirva de algo.
