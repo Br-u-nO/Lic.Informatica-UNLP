@@ -5,7 +5,7 @@ public class ejer{
 		int a=1;
 	    int b=10;
 		modulo1(a,b);
-	    modulo2(a,b);
+	        modulo2(a,b);
 		modulo3(a,b);
 	}
   public static void modulo1 (int a,int b) {
