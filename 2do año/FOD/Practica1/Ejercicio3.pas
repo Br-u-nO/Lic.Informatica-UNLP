@@ -42,6 +42,7 @@ begin
 		readln(e.dni);
     end;
 end;
+
 procedure menu ();
 begin
   writeln(linea);
@@ -53,6 +54,7 @@ begin
   writeln('6:Terminar el programa');
   writeln(linea);
 end;
+
 procedure armarArchivo(var emp:avo1);
 var
   e:empleado;
@@ -74,6 +76,7 @@ BEGIN
 	end;	
     close(emp);
 END;
+
 procedure leer(var emp:avo1;var e:empleado);
 begin
   if (not eof(emp))then 
@@ -81,6 +84,7 @@ begin
   else
     e.dni:=9999
 end;
+
 procedure buscarnom (var emp:avo1);
 var
   nom:string50;
@@ -98,6 +102,7 @@ begin
    end;
    close(emp);
 end;
+
 procedure listarArchivo (var emp:avo1);
 var
   e:empleado;
@@ -113,6 +118,7 @@ begin
    end;
    close(emp);
 end;
+
 procedure listar70(var emp:avo1);
 var
   e:empleado;
@@ -129,12 +135,7 @@ begin
    end;
    close(emp);
 end;
-procedure analizar (var emp:avo1);
-begin
-   buscarnom(emp);
-   listarArchivo(emp);
-   listar70(emp);
-end;
+
 var
   empleados:avo1;
   a:integer;
