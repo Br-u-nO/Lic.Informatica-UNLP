@@ -139,20 +139,21 @@ var
   a:integer;
   nombre:string[20];
 begin
-    menu();
-    writeln('Elige una de las anterires');
-    readln(a);
-    if(a=1)then
-       armarArchivo(empleados)
-    else begin
-        writeln('Escribir nombre del archivo');
-        readln(nombre);
-        assign(empleados,nombre);
-		case a of    
-  			1:armarArchivo(empleados)
-			2:buscarnom(empleados);
-			3:listar70(empleados);
-			4:listarArchivo(empleados);
-	    end;
-    end;
-end.
+    a:=0;
+    while(a<>6)do begin
+        menu();
+        writeln('Elige una de las anteriores');
+        readln(a);
+	if (a<>6)then begin
+		writeln('Escribir nombre del archivo');
+		readln(nombre);
+		assign(empleados,nombre);
+	end;
+	case a of    
+		1:armarArchivo(empleados);
+		2:buscarnom(empleados);
+		3:listar70(empleados);
+		4:listarArchivo(empleados);
+	end;
+  end;
+end. 
