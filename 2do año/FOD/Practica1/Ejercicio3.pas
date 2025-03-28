@@ -50,6 +50,7 @@ begin
   writeln('2:Buscar empleados por nombre o apellido.');
   writeln('3:Buscar empleados prontos a jubilarse.');
   writeln('4:Listar el total de empleados');
+  writeln('6:Terminar el programa');
   writeln(linea);
 end;
 procedure armarArchivo(var emp:avo1);
