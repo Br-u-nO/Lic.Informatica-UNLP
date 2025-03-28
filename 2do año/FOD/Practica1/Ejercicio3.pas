@@ -149,6 +149,7 @@ begin
         readln(nombre);
         assign(empleados,nombre);
 		case a of    
+  			1:armarArchivo(empleados)
 			2:buscarnom(empleados);
 			3:listar70(empleados);
 			4:listarArchivo(empleados);
