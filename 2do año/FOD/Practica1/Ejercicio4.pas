@@ -236,7 +236,6 @@ var
 begin
     assign(emptexto,'todos_empleados.txt');
     assign(dnitexto,'faltaDNIEmpleado.txt');
-    a:=0;
     menu();
     writeln('Elige una de las anteriores');
     readln(a);
