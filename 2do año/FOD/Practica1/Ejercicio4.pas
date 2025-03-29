@@ -1,17 +1,14 @@
 {
-   3. Realizar un programa que presente un menú con opciones para:
-a. Crear un archivo de registros no ordenados de empleados y completarlo con
-datos ingresados desde teclado. De cada empleado se registra: número de
-empleado, apellido, nombre, edad y DNI. Algunos empleados se ingresan con
-DNI 00. La carga finaliza cuando se ingresa el String ‘fin’ como apellido.
-b. Abrir el archivo anteriormente generado y
-i. Listar en pantalla los datos de empleados que tengan un nombre o apellido
-determinado, el cual se proporciona desde el teclado.
-ii. Listar en pantalla los empleados de a uno por línea.
-iii. Listar en pantalla los empleados mayores de 70 años, próximos a jubilarse.
-NOTA: El nombre del archivo a crear o utilizar debe ser proporcionado por el usuario.
-   
-   
+  4. Agregar al menú del programa del ejercicio 3, opciones para:
+a. Añadir uno o más empleados al final del archivo con sus datos ingresados por
+teclado. Tener en cuenta que no se debe agregar al archivo un empleado con
+un número de empleado ya registrado (control de unicidad).
+b. Modificar la edad de un empleado dado.
+c. Exportar el contenido del archivo a un archivo de texto llamado
+“todos_empleados.txt”.
+d. Exportar a un archivo de texto llamado: “faltaDNIEmpleado.txt”, los empleados
+que no tengan cargado el DNI (DNI en 00).
+NOTA: Las búsquedas deben realizarse por número de empleado.
 }
 program untitled;
 const
@@ -51,8 +48,11 @@ begin
   writeln('2:Buscar empleados por nombre o apellido.');
   writeln('3:Buscar empleados prontos a jubilarse.');
   writeln('4:Listar el total de empleados');
-  writeln('5:Agregar mpleado/s');
-  writeln('6:Terminar el programa');
+  writeln('5:Agregar empleado/s');
+  writeln('6:Cambiar edad de empleado');
+  writeln('7:Exportar datos a archivo de texto');
+  writeln('8:Exportar empleados sin dni a archivo de texto');
+  writeln('9:Terminar el programa');
   writeln(linea);
 end;
 procedure armarArchivo(var emp:avo1);
@@ -147,10 +147,11 @@ begin
 	ok:=false;
 	seek(emp,0);
 	leer(emp,e);
-	while(e.dni<>valorAlto)do begin
+	while(e.dni<>valorAlto)and(not ok)do begin
 		if(e.nro=num)then
-			ok:=true;
-		leer(emp,e)
+			ok:=true
+	    else
+			leer(emp,e)
 	end;
 	qExiste:=ok;
 end;
@@ -163,7 +164,6 @@ begin
 	reset(emp);
 	while(e.apellido<>'fin')do begin
 		if(not (qExiste(emp,e.nro)))then begin
-		    seek(emp,filesize(emp));
 			write(emp,e)
 		end else
 		  writeln('¡Ese numero ya esta asociado con un empleado!');
@@ -171,27 +171,93 @@ begin
 	end;
 	close(emp);
 end;
+
+procedure cambiarEdad (var emp:avo1);
+var
+	n:integer;
+	e:empleado;
+begin
+	reset(emp);
+	writeln('Escribe el nro de empleado:');
+	readln(n);
+	if(qExiste(emp,n))then begin
+		seek(emp,filePos(emp)-1);
+		leer(emp,e);
+		writeln('Escriba la edad:');
+		readln(n);
+		e.edad:=n;
+		seek(emp,filePos(emp)-1);
+		write(emp,e);
+	end else
+		writeln('¡Ese numero no esta asociado con un empleado!');
+    close(emp);
+end;
+
+procedure exportarTexto (var emp:avo1;var txt:text);
+var
+	apeynom:string50;
+	e:empleado;
+begin
+	reset(emp);
+	rewrite(txt);
+	leer(emp,e);
+	while(e.dni<>valorAlto)do begin
+		apeynom:=e.nombre+' '+e.apellido;
+		writeln(e.nro,e.edad,e.dni,apeynom);
+		leer(emp,e);
+	end;
+	close(emp);
+	close(txt)
+end;
+
+procedure dniNulo (var emp:avo1;var txt:text);
+var
+	e:empleado;
+	apeynom:string50;
+begin
+	reset(emp);
+	rewrite(txt);
+	leer(emp,e);
+	while(e.dni<>valorAlto)do begin
+		if(e.dni=00)then  begin
+			apeynom:=e.nombre+' '+e.apellido;
+			writeln(e.nro,e.edad,e.dni,apeynom);
+		end;
+		leer(emp,e);
+	end;
+	close(emp);
+	close(txt)
+end;
 var
   empleados:avo1;
   a:integer;
-  nombre:string[20];
+  nombre:string50;
+  emptexto,dnitexto:text;
 begin
+    assign(emptexto,'todos_empleados.txt');
+    assign(dnitexto,'faltaDNIEmpleado.txt');
     a:=0;
-    while(a<>6)do begin
-        menu();
+    menu();
+    writeln('Elige una de las anteriores');
+    readln(a);
+    if (a<>9)then begin
+		writeln('Escribir nombre del archivo');
+		readln(nombre);
+		assign(empleados,nombre);
+	end;
+    while(a<>9)do begin
+   		case a of    
+			1:armarArchivo(empleados);
+			2:buscarnom(empleados);
+			3:listar70(empleados);
+			4:listarArchivo(empleados);
+			5:agregarEmpleados(empleados);
+			6:cambiarEdad(empleados);
+			7:exportarTexto(empleados,emptexto);
+			8:dniNulo(empleados,dnitexto)
+		end;
+		menu();
         writeln('Elige una de las anteriores');
         readln(a);
-		    if (a<>6)then begin
-				writeln('Escribir nombre del archivo');
-				readln(nombre);
-				assign(empleados,nombre);
-			end;
-			case a of    
-			    1:armarArchivo(empleados);
-				2:buscarnom(empleados);
-				3:listar70(empleados);
-				4:listarArchivo(empleados);
-				5:agregarEmpleados(empleados);
-			end;
-		end;
+	end;
 end. 
