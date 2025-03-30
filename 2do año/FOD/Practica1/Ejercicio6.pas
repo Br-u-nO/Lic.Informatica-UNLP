@@ -40,6 +40,9 @@ begin
 	writeln('2:Listar celulares con stock bajo');
 	writeln('3:Listar celulares con descripcion');
 	writeln('4:Exportar datos a un archivo de texto');
+	writeln('5:Agregar celular/es');
+	writeln('6:Modificar stock');
+	writeln('7:Listar celulares sin stock');
 	writeln('8:Terminar programa');
 	writeln(linea);
 	writeln;
@@ -63,7 +66,82 @@ begin
 	close(cel);
 end;
 
+procedure leerCelular (var c:celular);
+begin
+writeln('Nombre:');
+	readln(c.nombre);
+	if(c.nombre<>'fin')then begin
+		writeln('Codigo:');
+		readln(c.cod);
+		writeln('Precio:');
+		readln(c.precio);
+		writeln('Marca:');
+		readln(c.marca);
+		writeln('Stock:');
+		readln(c.stock);
+		writeln('Stock disponible: ');
+		readln(c.dispo);	
+		writeln('Descripcion:');
+		readln(c.desc);
+	end;
+end;
+procedure agregarCel(var cel:avo1);
+var
+	c:celular;
+begin
+	reset(cel);
+	seek(cel,filesize(cel));
+	leerCelular(c);
+	while(c.nombre<>'fin')do begin
+		write(cel,c);
+		leerCelular(c);
+	end;
+	close(cel);
+end;
+
+procedure cambiarStock (var cel:avo1);
+var
+	nom:string;
+	c:celular;
+	s:integer;
+begin
+	reset(cel);
+	writeln('Escribe el nombre a buscar');
+	readln(nom);
+	leer(cel,c);
+	while(c.cod<>valorAlto) and (c.nombre<>nom)do
+		leer(cel,c);
+	if(c.cod<>valorAlto)then begin
+		seek(cel,filepos(cel)-1);
+		writeln('Escribe el nuevo stock');
+		readln(s);
+		c.stock:=s;
+		write(cel,c)
+	end else
+		writeln('No existe un celular con ese nombre');
+	close(cel);
+end;
+
 procedure listarSinStock(var cel:avo1);
+var
+	c:celular;
+begin
+	reset(cel);
+	leer(cel,c);
+	writeln;
+	writeln(linea);
+	writeln('Celulares sin stock');
+	while (c.cod<>valorAlto)do begin
+		if(c.stock=0)then
+			writeln('cod: ',c.cod,' $',c.precio,' marca: ',c.marca,' stock: ',c.stock,' stock min:',c.dispo,' nombre: ',c.nombre,' descripcion: ',c.desc);
+		leer(cel,c);
+	end;
+	writeln(linea);
+	writeln;
+	close(cel);
+end;
+
+procedure listarStockBajo(var cel:avo1);
 var
 	c:celular;
 begin
@@ -132,9 +210,12 @@ begin
 	while(a<>8)do begin
 		case a of
 			1:impDatos(celulares,celtexto);
-			2:listarSinStock(celulares);
+			2:listarStockBajo(celulares);
 			3:listarDescripcion(celulares);
-			4:expDatos(celulares,celtexto)
+			4:expDatos(celulares,celtexto);
+			5:agregarCel(celulares);
+			6:cambiarStock(celulares);
+			7:ListarSinStock(celulares)
 		end;
 		menu(a);
 	end;
