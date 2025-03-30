@@ -25,7 +25,7 @@
 Program untitled;
 const
 	linea=('----------------------------');
-	valorAlto=30001;
+	valorAlto=-1;
 type
 	celular=record
 		cod:integer;
@@ -38,6 +38,13 @@ type
 	end;
 	avo1=file of celular;
 
+procedure leer(var cel:avo1;var c:celular);
+begin
+	if not (eof(cel))then
+		read(cel,c)
+	else
+		c.cod:=valorAlto;
+end;
 procedure menu (var a:integer);
 begin
 	writeln;
@@ -52,6 +59,77 @@ begin
 	writeln;
 	writeln('Elige una de las anteriores opciones');
 	readln(a);
+end;
+
+procedure impDatos(var cel:avo1;var txt:text);
+var
+	c:celular;
+begin
+	reset(txt);
+	rewrite(cel);
+	while(not eof(txt))do begin
+		readln(txt,c.cod,c.precio,c.marca);
+		readln(txt,c.stock,c.dispo,c.desc);
+		readln(txt,c.nombre);
+		write(cel,c);
+	end;
+	close(txt);
+	close(cel);
+end;
+
+procedure listarSinStock(var cel:avo1);
+var
+	c:celular;
+begin
+	reset(cel);
+	leer(cel,c);
+	writeln;
+	writeln(linea);
+	writeln('Celulares con stock bajo');
+	while (c.cod<>valorAlto)do begin
+		if(c.stock<c.dispo)then
+			writeln('cod: ',c.cod,' $',c.precio,' marca: ',c.marca,' stock: ',c.stock,' stock min:',c.dispo,' nombre: ',c.nombre,' descripcion: ',c.desc);
+		leer(cel,c);
+	end;
+	writeln(linea);
+	writeln;
+	close(cel);
+end;
+
+procedure listarDescripcion(var cel:avo1);
+var
+	c:celular;
+begin
+	reset(cel);
+	leer(cel,c);
+	writeln;
+	writeln(linea);
+	writeln('Celulares con descripcion');
+	while (c.cod<>valorAlto)do begin
+		if(c.desc<>' ')then
+			writeln('cod: ',c.cod,' $',c.precio,' marca: ',c.marca,' stock: ',c.stock,' stock min:',c.dispo,' nombre: ',c.nombre,' descripcion: ',c.desc);
+		leer(cel,c);
+	end;
+	writeln(linea);
+	writeln;
+	close(cel);
+end;
+
+procedure expDatos (var cel:avo1;var txt:text);
+var
+	c:celular;
+begin
+	reset(cel);
+	rewrite(txt);
+	leer(cel,c);
+	while(c.cod<>valorAlto)do begin
+		writeln(txt,c.cod,' ',c.precio,' ',c.marca);
+		writeln(txt,c.stock,' ',c.dispo,' ',c.desc);
+		writeln(txt,c.nombre);
+		leer(cel,c);
+	end;
+	close(cel);
+	close(txt);
 end;
 var
 	celulares:avo1;
@@ -73,4 +151,5 @@ begin
 			4:expDatos(celulares,celtexto)
 		end;
 		menu(a);
+	end;
 end.
