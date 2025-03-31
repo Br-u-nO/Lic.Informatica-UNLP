@@ -31,6 +31,7 @@ begin
 	else
 		c.cod:=valorAlto;
 end;
+
 procedure menu (var a:integer);
 begin
 	writeln;
@@ -85,6 +86,7 @@ writeln('Nombre:');
 		readln(c.desc);
 	end;
 end;
+
 procedure agregarCel(var cel:avo1);
 var
 	c:celular;
@@ -195,6 +197,7 @@ begin
 	close(cel);
 	close(txt);
 end;
+
 var
 	celulares:avo1;
 	celtexto:text;
