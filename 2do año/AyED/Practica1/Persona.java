@@ -9,9 +9,9 @@ public abstract class Persona {
 	
 	public Persona(String nombre, String apellido, String email) {
 		super();
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.email = email;
+		this.setNombre(nombre);
+		this.setApellido(apellido);
+		this.setEmail(email);
 	}
 	public String getNombre() {
 		return nombre;
