@@ -1,4 +1,4 @@
-package ejercicio1_practica1;
+package Practica1;
 
 public class ejer{
 	public static void main(String[]args) {
