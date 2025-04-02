@@ -1,6 +1,6 @@
 package Practica1;
 
-public class ejer{
+public class Ejercicio1{
 	public static void main(String[]args) {
 		int a=1;
 	    int b=10;
@@ -25,6 +25,6 @@ public class ejer{
 	  a+=1;
 	  if(a<=b) {
 		  modulo3(a,b);
-	  }
-  }
+	}
+}
 }

@@ -1,4 +1,6 @@
-public class SwapValores {
+package Practica1;
+
+public class Ejercicio4 {
     public static void swap1(int x, int y) {
         if (x < y) {
             int tmp = x;
