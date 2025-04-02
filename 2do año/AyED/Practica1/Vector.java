@@ -21,9 +21,16 @@ public class Vector {
 	public int[] getVec() {
 		return vec;
 	}
+	
 	private void setVec(int[] vec) {
 		this.vec = vec;
 	}
+	
+	private void setVec(int n,int v) {
+		this.vec[n] = v;
+	}
+	
+	
 	private int getDiml() {
 		return diml;
 	}
@@ -31,13 +38,7 @@ public class Vector {
 	public int getNum (int n) {
 		return this.vec[n];
 	}
-	public String toString(){
-		String aux="";
-		for (int i=0;i<diml;i++) {
-			aux+=(this.getNum(i)+" ");
-		}
-		return aux;
-	}
+	
 	
 	public Valores getValores () {
 		Valores v;
@@ -59,14 +60,7 @@ public class Vector {
 	
 
 
-	private void setVec(int n,int v) {
-		this.vec[n] = v;
-	}
-	
-
-
-	public Vector Valores2() {
-		Vector v;
+	public int [] Valores2() {
 		int min=9999,max=-9999;
 		double p=0;
 		for (int i=0;i<this.getDiml();i++) {
@@ -78,12 +72,37 @@ public class Vector {
 			}
 			p+=this.getNum(i);
 		}
-		int i=(int) (p/this.getDiml());
-		v=new Vector(3);
-		v.setVec(0, min);
-		v.setVec(1, max);
-		v.setVec(2, i);
-		return v;
+		int promedio= (int) (p/this.getDiml());
+		
+		return new int[] {min,max,promedio};
 	}
 	
+	
+	public void Valores3() {
+		int min=9999,max=-9999;
+		double p=0;
+		for (int i=0;i<this.getDiml();i++) {
+			if (this.getNum(i)<min) {
+				min=this.getNum(i);
+			}
+			if (this.getNum(i)>max) {
+				max=this.getNum(i);
+			}
+			p+=this.getNum(i);
+		}
+		int promedio= (int) (p/this.getDiml());
+		
+		System.out.print("Máximo: " + max);
+                System.out.print(" Mínimo: " + min );
+                System.out.print(" Promedio: " + promedio);
+        }
+	
+        
+	public String toString(){
+		String aux="";
+		for (int i=0;i<diml;i++) {
+			aux+=(this.getNum(i)+" ");
+		}
+		return aux;
+	}
 }
