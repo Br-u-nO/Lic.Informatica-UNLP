@@ -1,4 +1,4 @@
-package Practica1.tp1.ejercicio7;
+package tp1.ejercicio7;
 
 
 import java.util.*;
@@ -72,6 +72,21 @@ public class Ejercicio7 {
         imprimir(estudiantes,0);
         System.out.println("Segunda lista");
         imprimir(estudiantesCopia,0);
+        
+        System.out.println("_______________________________");
+        System.out.println();
+        
+        
+        e=new Estudiante("Flor","Mendoza","noimporta@gmail.com",3,2133);
+        for(int i=0;i<4;i++){
+            if(!estudiantes.contains(e)){
+                estudiantes.add(e);
+        }
+        }
+        
+        
+        System.out.println("Punto e");
+        imprimir(estudiantes,0);
     }
     
     public static void imprimir(List<Estudiante>lista,int index){
@@ -80,5 +95,7 @@ public class Ejercicio7 {
             System.out.println(e.toString());
             imprimir(lista,index+1);
         }
+        
+        
     }
 }
