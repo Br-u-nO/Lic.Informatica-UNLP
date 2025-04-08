@@ -1,15 +1,18 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ Su tarea es calcular el mayor retardo posible, en el camino que realiza un mensaje desde la raíz
+ hasta llegar a las hojas en una red binaria llena. En el ejemplo, debería retornar 10+3+9+12=34
+ (Si hay más de un máximo retorne el último valor hallado).
+ Nota: asuma que cada nodo tiene el dato de retardo de reenvío expresado en cantidad de
+ segundos.
+ a) Indique qué estrategia (recorrido en profundidad o por niveles) utilizará para resolver el
+ problema.
+ b) Cree una clase Java llamada RedBinariaLlena donde implementará lo solicitado en el
+ método retardoReenvio():int
  */
 package Practica2;
 
 
-/**
- *
- * @author Bruno
- */
+
 public class Ejercicio4 {
 
     public static void main(String[] args) {
@@ -30,7 +33,6 @@ public class Ejercicio4 {
          arbol.addRightChild(hijo4);
          
         enteros=new RedBinariaLlena(arbol);
-        System.out.println(enteros.getArbol().toString());
-        System.out.println(enteros.retardoRenvio());
+        System.out.println("El retardo es de: "+enteros.retardoRenvio()+ " segundos.");
     }
 }
