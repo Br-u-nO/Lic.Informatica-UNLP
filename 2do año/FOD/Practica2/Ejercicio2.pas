@@ -65,12 +65,11 @@ begin
 	while(v.cod<>valorImp)do begin
 		suma:=0;
 		act:=v.cod;
+  		ant:=v;
 		while((v.cod<>valorImp)and(v.cod=act))do begin
 			suma:=suma+v.cant;
-			ant:=v;
 			leer2(detalle,v);
 			end;
-		
 		while((v2.cod<>valorImp)and(v2.cod<ant.cod))do 
 			leer(maestro,v2);
 		seek(maestro,filePos(maestro)-1);
