@@ -56,7 +56,6 @@ var
 	v2:venta;
 	ant,v:ventared;
 	suma:integer;
-	act:integer;
 begin
 	reset(detalle);
 	reset(maestro);
@@ -64,9 +63,8 @@ begin
 	leer(maestro,v2);
 	while(v.cod<>valorImp)do begin
 		suma:=0;
-		act:=v.cod;
   		ant:=v;
-		while((v.cod<>valorImp)and(v.cod=act))do begin
+		while((v.cod<>valorImp)and(v.cod=ant.cod))do begin
 			suma:=suma+v.cant;
 			leer2(detalle,v);
 			end;
