@@ -33,13 +33,13 @@ type
 		cant:integer;
 	end;
 	
-	avo1=file of venta;
+	maestro=file of venta;
 	avo2=file of ventared;
 	
-procedure leer(var ven:avo1;var v:venta);
+procedure leer(var mae:maestro;var v:venta);
 begin
-	if(not eof(ven))then
-		read(ven,v)
+	if(not eof(mae))then
+		read(mae,v)
 	else
 		v.cod:=valorImp;
 end;
@@ -51,35 +51,67 @@ begin
 		v.cod:=valorImp;
 end;
 
-procedure actualizarArchivo(var detalle:avo2;var maestro:avo1);
+procedure actualizarArchivo(var detalle:avo2;var mae:maestro);
 var
 	v2:venta;
 	ant,v:ventared;
 	suma:integer;
+	act:integer;
 begin
 	reset(detalle);
-	reset(maestro);
+	reset(mae);
 	leer2(detalle,v);
-	leer(maestro,v2);
+	leer(mae,v2);
 	while(v.cod<>valorImp)do begin
 		suma:=0;
-  		ant:=v;
-		while((v.cod<>valorImp)and(v.cod=ant.cod))do begin
+		act:=v.cod;
+		while((v.cod<>valorImp)and(v.cod=act))do begin
 			suma:=suma+v.cant;
+			ant:=v;
 			leer2(detalle,v);
 			end;
+		
 		while((v2.cod<>valorImp)and(v2.cod<ant.cod))do 
-			leer(maestro,v2);
-		seek(maestro,filePos(maestro)-1);
+			leer(mae,v2);
+		seek(mae,filePos(mae)-1);
 		v2.stockact:=v2.stockact-suma;
-		write(maestro,v2);
+		write(mae,v2);
 	end;
 	close(detalle);
-	close(maestro);
+	close(mae);
+end;
+
+procedure bajoStock (var mae:maestro; var texto:text);
+var
+	v:venta;
+begin
+	leer(mae,v);
+	while(v.cod<>valorImp)do begin
+		if(v.stockact<v.stockmin)then
+			writeln(texto,v.cod,v.precio,v.stockact,v.stockmin,v.nombre);
+	end;
+end;
+
+procedure menu(var a:integer);
+begin
+	writeln(linea);
+	writeln('1:Actualizar ventas');
+	writeln('2:Archivar productos con pocas existencias');
+	writeln(linea);
+	writeln;
+	writeln('Elige una de las opciones anteriores: ');
+	readln(a);
 end;
 var
 	detalle:avo2;
-	maestro:avo1;
+	a:integer;
+	mae:maestro;
+	texto:text;
 begin
-	actualizarArchivo(detalle,maestro);
+	assign(texto,'stock_minimo.txt');
+	menu(a);
+	case a of 
+		1:actualizarArchivo(detalle,mae);
+		2:bajoStock(mae,texto);
+	end;
 end.
