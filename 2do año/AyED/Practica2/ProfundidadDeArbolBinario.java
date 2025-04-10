@@ -5,7 +5,8 @@
  */
 package Practica2;
 
-import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
 
 public class ProfundidadDeArbolBinario {
         
@@ -28,19 +29,25 @@ public class ProfundidadDeArbolBinario {
     }
         
         public int sumaElementosProfundidad (int p){
-           Stack<BinaryTree> pila=new Stack<>();
-           pila.push(this.getArbol());
-           pila.push(null);
+           Queue<BinaryTree> cola=new LinkedList<>();
+           cola.offer(this.getArbol());
+           cola.offer(null);
            int suma=0,n=0;
-           while((!pila.isEmpty())&&(n<=p)){
-               BinaryTree ab=pila.pop();
+           while((!cola.isEmpty())&&(n<=p)){
+               BinaryTree<Integer> ab=cola.poll();
                if(ab!=null){
                    if(n==p){
                        suma+=(Integer)ab.getData();
                    }
-               }else {
+                   if(ab.hasLeftChild()){
+                       cola.offer(ab.getLeftChild());
+                   }
+                   if(ab.hasRightChild()){
+                       cola.offer(ab.getRightChild());
+                   }
+               }else if(!cola.isEmpty()){
                    n+=1;
-                   pila.push(null);
+                   cola.offer(null);
                }
            }
            return suma;
