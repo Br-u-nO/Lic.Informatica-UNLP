@@ -24,7 +24,7 @@ public class ProfundidadDeArbolBinario {
         return arbol;
     }
 
-    public void setArbol(BinaryTree<Integer> arbol) {
+    private void setArbol(BinaryTree<Integer> arbol) {
         this.arbol = arbol;
     }
         
