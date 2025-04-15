@@ -62,5 +62,16 @@ public class ParcialArboles {
             }
         }
     }
+    public boolean esPrefijo (BinaryTree<Integer> ab1,BinaryTree<Integer> ab2) {
+    	if((ab1!=null)&&(ab2!=null)){
+	    	if (!ab1.getData().equals(ab2.getData())) {
+	    		return false;
+	    	}
+	    	return (esPrefijo(ab1.getLeftChild(),ab2.getLeftChild())) && (esPrefijo(ab1.getRightChild(),ab2.getRightChild()));
+    	}
+    	if(ab1!=null && ab2==null) {
+    		return false;
+    	}else
+    		return true;
     
 }
