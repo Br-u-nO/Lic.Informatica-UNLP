@@ -73,5 +73,17 @@ public class ParcialArboles {
     		return false;
     	}else
     		return true;
+     }
+
+	public BinaryTree<sumyDif> sumAndDif(BinaryTree<Integer> ab){
+    	BinaryTree<sumyDif> ab2=new BinaryTree<>();
+    	
+
+    	}
+    	return ab2;
+    }
     
 }
+
+
+
