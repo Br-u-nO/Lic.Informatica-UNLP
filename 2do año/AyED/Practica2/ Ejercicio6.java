@@ -29,9 +29,10 @@ public class Ejercicio6 {
          
          Transformacion enteros=new Transformacion(arbol);
          enteros.getArbol().entreNiveles(0, 3);
-         enteros.suma();
+         BinaryTree<Integer> enteros2=(enteros.suma());
          System.out.println();
-         enteros.getArbol().entreNiveles(0, 3);
+         enteros2.entreNiveles(0, 3);
+         
     }
      
 }

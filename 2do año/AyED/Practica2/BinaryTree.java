@@ -21,7 +21,7 @@ public class BinaryTree <T> {
 		return data;
 	}
 
-	public void setData(T data) {
+	private void setData(T data) {
 		this.data = data;
 	}
 	/**
@@ -113,7 +113,7 @@ public class BinaryTree <T> {
                 BinaryTree<T> ab=cola.poll();
                 if(ab!=null){
                     if(n<=nivel && nivel<=m){
-                        System.out.print(ab.getData() + " ");
+                        System.out.print(ab.getData().toString() + " ");
                     }
                     if (ab.hasLeftChild()){
                         cola.offer(ab.getLeftChild());
