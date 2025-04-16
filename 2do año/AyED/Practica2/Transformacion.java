@@ -25,30 +25,25 @@ public class Transformacion {
     }
     
      public BinaryTree<Integer> suma(){
-         Queue<BinaryTree> cola=new LinkedList<>();
-           cola.offer(this.getArbol());
-           cola.offer(null);
-           int suma=0,n=0;
-           while(!cola.isEmpty()){
-               BinaryTree<Integer> ab=cola.poll();
-               if(ab!=null){
-                     if(!ab.hasLeftChild()&&!ab.hasRightChild()){
-                         ab.setData(0);
-                     }else{
-                         ab.setData(busqueda(ab,0)-ab.getData());
-                     }
-                   if(ab.hasLeftChild()){
-                       cola.offer(ab.getLeftChild());
-                   }
-                   if(ab.hasRightChild()){
-                       cola.offer(ab.getRightChild());
-                   }
-               }else if(!cola.isEmpty()){
-                   cola.offer(null);
-               }
-           }
-           return this.getArbol();
-        }
+         return suma(this.getArbol());
+        
+     }
+     private BinaryTree<Integer> suma(BinaryTree<Integer> original) {
+         if (original == null) 
+             return null; 
+         Integer nuevoValor;
+         if (original.hasLeftChild() || original.hasRightChild()) {
+             nuevoValor = busqueda(original, 0) - original.getData();
+         } else {
+             nuevoValor = 0;
+         }
+        BinaryTree<Integer> nuevoArbol = new BinaryTree<>(nuevoValor);
+        nuevoArbol.addLeftChild(suma(original.getLeftChild()));
+        nuevoArbol.addRightChild(suma(original.getRightChild()));
+        
+        return nuevoArbol; 
+}
+
      
              
      private int busqueda (BinaryTree hijo,int suma){

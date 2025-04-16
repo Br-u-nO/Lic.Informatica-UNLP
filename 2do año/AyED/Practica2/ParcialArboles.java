@@ -75,15 +75,20 @@ public class ParcialArboles {
     		return true;
      }
 
-	public BinaryTree<sumyDif> sumAndDif(BinaryTree<Integer> ab){
-    	BinaryTree<sumyDif> ab2=new BinaryTree<>();
-    	
-
-    	}
-    	return ab2;
+    public BinaryTree<sumyDif> sumAndDif(BinaryTree<Integer> ab){
+        return calcularSYD(ab,0);
     }
-    
+    private BinaryTree<sumyDif> calcularSYD(BinaryTree<Integer> ab,int temp){
+        if(ab!=null){
+            sumyDif act=new sumyDif(ab.getData()+temp,ab.getData()-temp);
+            BinaryTree<sumyDif> ab2=new BinaryTree<>(act);
+            ab2.addLeftChild(calcularSYD(ab.getLeftChild(),ab.getData()));
+            ab2.addRightChild(calcularSYD(ab.getRightChild(),ab.getData()));
+            return ab2;
+        }
+        return null;
+    } 
+       
 }
-
 
 
