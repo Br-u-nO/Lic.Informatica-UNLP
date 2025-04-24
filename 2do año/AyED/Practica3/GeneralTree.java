@@ -1,4 +1,4 @@
-package tp3.ejercicio1;
+package Practica3;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 public class GeneralTree<T>{
 
 	private T data;
-	private List<GeneralTree<T>> children = new LinkedList<GeneralTree<T>>(); 
+	private List<GeneralTree<T>> children = new LinkedList<>(); 
 
 	public GeneralTree() {
 		
