@@ -7,8 +7,9 @@ registro de forma tal de evitar duplicados.
 
 program untitled;
 const
-  linea=('----------------------------');
-  valorAlto=30001;
+	corte=10;
+	linea=('--------------------------------------------------------');
+	valorAlto=30001;
 type
 string50=string[50];
 empleado=record
@@ -35,9 +36,10 @@ begin
 		readln(e.dni);
     end;
 end;
-procedure menu ();
+procedure menu (var a:integer);
 begin
   writeln(linea);
+  writeln;
   writeln('Menu de opciones');
   writeln('1:Armar o sobreescribir archivo.');
   writeln('2:Buscar empleados por nombre o apellido.');
@@ -47,8 +49,12 @@ begin
   writeln('6:Cambiar edad de empleado');
   writeln('7:Exportar datos a archivo de texto');
   writeln('8:Exportar empleados sin dni a archivo de texto');
-  writeln('9:Terminar el programa');
+  writeln('9:Eliminar un empleado');
+  writeln(corte,':Terminar el programa');
+  writeln;
   writeln(linea);
+  writeln('Elige una de las anteriores');
+  readln(a);
 end;
 procedure armarArchivo(var emp:avo1);
 var
@@ -69,6 +75,8 @@ BEGIN
 	   if(i=30)then
 	     e.apellido:='fin';
 	end;	
+	writeln(linea);
+	writeln();
     close(emp);
 END;
 procedure leer(var emp:avo1;var e:empleado);
@@ -96,6 +104,7 @@ begin
        writeln('nro: ',e.nro,' nombre: ',e.nombre,' apellido: ',e.apellido,' edad: ',e.edad,' dni: ',e.dni);
      leer(emp,e);
    end;
+   writeln(linea);
    writeln;
    close(emp);
 end;
@@ -112,6 +121,7 @@ begin
      writeln('nro: ',e.nro,' nombre: ',e.nombre,' apellido: ',e.apellido,' edad: ',e.edad,' dni: ',e.dni);
      leer(emp,e);
    end;
+   writeln(linea);
    writeln;
    close(emp);
 end;
@@ -130,6 +140,7 @@ begin
        writeln('nro: ',e.nro,' nombre: ',e.nombre,' apellido: ',e.apellido,' edad: ',e.edad,' dni: ',e.dni);
      leer(emp,e);
    end;
+   writeln(linea);
    writeln;
    close(emp);
 end;
@@ -155,16 +166,20 @@ procedure agregarEmpleados(var emp:avo1);
 var
   e:empleado;
 begin
+	writeln('--------------------- Agregar Empleados ---------------------');
+	writeln();
 	leerEmpleado(e);
 	reset(emp);
 	while(e.apellido<>'fin')do begin
-		if(not (qExiste(emp,e.nro)))then begin
+		if(not (qExiste(emp,e.nro)))then 
 			write(emp,e)
-		end else
-		  writeln('¡Ese numero ya esta asociado con un empleado!');
+	    else
+		    writeln('¡Ese numero ya esta asociado con un empleado!');
 		leerEmpleado(e);
 	end;
 	close(emp);
+	writeln(linea);
+	writeln();
 end;
 
 procedure cambiarEdad (var emp:avo1);
@@ -172,6 +187,8 @@ var
 	n:integer;
 	e:empleado;
 begin
+	writeln('--------------------- Cambiar Edad ---------------------');
+	writeln();
 	reset(emp);
 	writeln('Escribe el nro de empleado:');
 	readln(n);
@@ -186,6 +203,8 @@ begin
 	end else
 		writeln('¡Ese numero no esta asociado con un empleado!');
     close(emp);
+    writeln(linea);
+	writeln();
 end;
 
 procedure exportarTexto (var emp:avo1;var txt:text);
@@ -223,6 +242,38 @@ begin
 	close(emp);
 	close(txt)
 end;
+
+procedure borrarEmpleado (var mae:avo1);
+var
+	emp:empleado;
+	nro:integer;
+begin
+	reset(mae);
+	writeln('--------------------- Borrar Empleado ---------------------');
+	writeln();
+	writeln('numero de empleado a borrar');
+	readln(nro);
+	leer(mae,emp);
+	while (emp.nro<>nro)and(emp.dni<>valorAlto) do 
+		leer(mae,emp);
+	if(emp.nro=nro)then begin
+	leer(mae,emp);
+		while(emp.dni<>valorAlto)do begin
+			
+			seek(mae,filePos(mae)-2);
+			write(mae,emp);
+			seek(mae,filePos(mae)+1);
+			leer(mae,emp);
+		end;
+		seek(mae,filePos(mae)-1);
+		truncate(mae);
+		writeln('Se a borrado al empleado correctamente');
+	end else
+		writeln('No existe empleado con ese numero');
+	close(mae);
+	writeln(linea);
+	writeln();
+end;
 var
   empleados:avo1;
   a:integer;
@@ -231,15 +282,13 @@ var
 begin
     assign(emptexto,'todos_empleados.txt');
     assign(dnitexto,'faltaDNIEmpleado.txt');
-    menu();
-    writeln('Elige una de las anteriores');
-    readln(a);
-    if (a<>9)then begin
+    menu(a);
+    if((a<>1)and(a<10))then begin
 		writeln('Escribir nombre del archivo');
 		readln(nombre);
 		assign(empleados,nombre);
 	end;
-    while(a<>9)do begin
+    while(a<corte)do begin
    		case a of    
 			1:armarArchivo(empleados);
 			2:buscarnom(empleados);
@@ -248,10 +297,9 @@ begin
 			5:agregarEmpleados(empleados);
 			6:cambiarEdad(empleados);
 			7:exportarTexto(empleados,emptexto);
-			8:dniNulo(empleados,dnitexto)
+			8:dniNulo(empleados,dnitexto);
+			9:borrarEmpleado(empleados)
 		end;
-		menu();
-        writeln('Elige una de las anteriores');
-        readln(a);
+		menu(a);
 	end;
 end. 
