@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.LinkedList;
 import java.util.Queue;
 	public class RecorridosAG {
-            private int i;
+           
         
 	public List<Integer> numerosImparesMayoresQuePreOrden (GeneralTree<Integer> ab,Integer n){
             List<Integer> lista=new LinkedList<>();
@@ -16,8 +16,10 @@ import java.util.Queue;
         
         private List<Integer> busquedaPreOrden (GeneralTree<Integer> ab,Integer n){
             List<Integer> lista=new LinkedList<>();
-            if((ab.getData()%2==1)&&(ab.getData()>n)){
-                lista.add(ab.getData());
+            if(ab.getData()!=null){
+                if((ab.getData()%2==1)&&(ab.getData()>n)){
+                    lista.add(ab.getData());
+                }
             }
             for(GeneralTree<Integer> hijos:ab.getChildren()){
                 lista.addAll(busquedaPreOrden(hijos,n));
@@ -40,8 +42,10 @@ import java.util.Queue;
             if(ab.hasChildren()){
                 List<GeneralTree<Integer>> hijos=new LinkedList(ab.getChildren());
                 lista.addAll(busquedaInOrden(hijos.get(0),n));
-                if((ab.getData()%2==1)&&(ab.getData()>n)){
-                    lista.add(ab.getData());
+                if(ab.getData()!=null){
+                    if((ab.getData()%2==1)&&(ab.getData()>n)){
+                        lista.add(ab.getData());
+                    }
                 }
                 for(Integer i=1;i<hijos.size();i++){
                     lista.addAll(busquedaInOrden(hijos.get(i),n));
@@ -66,17 +70,18 @@ import java.util.Queue;
             for(GeneralTree<Integer> hijos:ab.getChildren()){
                 lista.addAll(busquedaPostOrden(hijos,n));
             }
-            if((ab.getData()%2==1)&&(ab.getData()>n)){
-                lista.add(ab.getData());
+            if(ab.getData()!=null){
+                if((ab.getData()%2==1)&&(ab.getData()>n)){
+                    lista.add(ab.getData());
+                }
             }
             return lista;
         }
         
 	public List<Integer> numerosImparesMayoresQuePorNiveles (GeneralTree<Integer> ab,Integer n){
 		List<Integer> lista=new LinkedList<>();
-                lista.add(ab.getData());
 		if((!ab.isEmpty())){
-                    lista.addAll(busquedaPorNiveles(ab,n));
+                    lista = (busquedaPorNiveles(ab,n));
                      
                 }
                 return lista;
@@ -84,16 +89,23 @@ import java.util.Queue;
 	
 	private List<Integer> busquedaPorNiveles (GeneralTree<Integer> ab,Integer n){
             List<Integer> lista=new LinkedList<>();
+            if(ab.getData()!=null && ((ab.getData()%2==1) && (ab.getData()>n)))
+                lista.add(ab.getData());
             Queue<List> cola=new LinkedList<>();
-            cola.offer(ab.getChildren());
+            if(ab.hasChildren())
+                cola.offer(ab.getChildren());
             while(!cola.isEmpty()){
                 List<GeneralTree> temp=cola.poll();
                 for(GeneralTree<Integer> hijo:temp){
-                    lista.add(hijo.getData());
+                    if(hijo.getData()!=null){
+                        if((hijo.getData()%2==1)&&(hijo.getData()>n)){
+                            lista.add(hijo.getData());
+                        }
+                    }
                     if(hijo.hasChildren())
                         cola.offer(hijo.getChildren());
                 }
-                    
+                
             }
             
             return lista;

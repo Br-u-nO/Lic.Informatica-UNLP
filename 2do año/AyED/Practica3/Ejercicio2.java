@@ -6,7 +6,7 @@ import java.util.LinkedList;
 public class Ejercicio2 {
     
      public static void main(String[] args) {
-     GeneralTree<Integer> raiz=new GeneralTree<>(9);    
+     GeneralTree<Integer> raiz=new GeneralTree<>(null);    
      GeneralTree<Integer> hijo1=new GeneralTree<>(11);    
      GeneralTree<Integer> hijo2=new GeneralTree<>(5);    
      GeneralTree<Integer> hijo3=new GeneralTree<>(3);    
@@ -31,7 +31,7 @@ public class Ejercicio2 {
      System.out.println();
      System.out.println(analizador.numerosImparesMayoresQuePostOrden(raiz, 0));
      System.out.println();
-     System.out.println(analizador.numerosImparesMayoresQuePorNiveles(raiz, 0));
+     System.out.println(analizador.numerosImparesMayoresQuePorNiveles(raiz, -1));
      }
      
      
