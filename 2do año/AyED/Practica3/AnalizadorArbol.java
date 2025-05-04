@@ -12,17 +12,20 @@ import java.util.LinkedList;
 public class AnalizadorArbol {
         
     
-     public double devolverMaximoPromedio (GeneralTree<AreaEmpresa> arbol){
+     public static double devolverMaximoPromedio (GeneralTree<AreaEmpresa> arbol){
          Queue<List> cola = new LinkedList<>();
          double max = 0;
          double suma = 0;
          int cant = 0;
+         
          if(arbol.getData()!=null)
            max = arbol.getData().getTiempo_mensaje();
+         
          if(arbol.hasChildren()){
             cola.offer(arbol.getChildren());
             cola.offer(null);
          }
+         
          while (!cola.isEmpty()){
              List<GeneralTree> temp = cola.poll();
              if(temp==null){
@@ -32,6 +35,7 @@ public class AnalizadorArbol {
                  suma = 0;
                  cant = 0;
              }
+             
              else{
                  for(GeneralTree<AreaEmpresa> hijo: temp){
                      suma+=hijo.getData().getTiempo_mensaje();
@@ -41,7 +45,7 @@ public class AnalizadorArbol {
                  }
                  cola.offer(null);
              }
-         }
+         }   
          return max;
      }
 }

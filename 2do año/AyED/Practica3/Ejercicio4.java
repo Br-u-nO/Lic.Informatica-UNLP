@@ -21,10 +21,8 @@ public class Ejercicio4 {
         raiz.addChild(hijo1);
         raiz.addChild(hijo2);
         hijo2.addChild(hijo3);
-      
-        AnalizadorArbol analizador = new AnalizadorArbol();
-        
-        System.out.println(analizador.devolverMaximoPromedio(raiz));
+             
+        System.out.println(AnalizadorArbol.devolverMaximoPromedio(raiz));
     }
     
 }

@@ -1,7 +1,5 @@
 package Practica3;
 
-import java.util.List;
-import java.util.LinkedList;
 
 public class Ejercicio2 {
     
@@ -24,15 +22,18 @@ public class Ejercicio2 {
      hijo5.addChild(hijo6);
      
      
-     RecorridosAG analizador=new RecorridosAG();
-     System.out.println(analizador.numerosImparesMayoresQuePreOrden(raiz, 5));
+     System.out.println(RecorridosAG.numerosImparesMayoresQuePreOrden(raiz, 5));
      System.out.println();
-     System.out.println(analizador.numerosImparesMayoresQueInOrden(raiz, 0));
+     System.out.println(RecorridosAG.numerosImparesMayoresQueInOrden(raiz, 0));
      System.out.println();
-     System.out.println(analizador.numerosImparesMayoresQuePostOrden(raiz, 0));
+     System.out.println(RecorridosAG.numerosImparesMayoresQuePostOrden(raiz, 0));
      System.out.println();
-     System.out.println(analizador.numerosImparesMayoresQuePorNiveles(raiz, -1));
+     System.out.println(RecorridosAG.numerosImparesMayoresQuePorNiveles(raiz, -1));
+     
      }
      
+     public static void romper(Integer n){
+         n=0;
+     }
      
 }

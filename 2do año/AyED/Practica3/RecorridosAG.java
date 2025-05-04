@@ -6,7 +6,7 @@ import java.util.Queue;
 	public class RecorridosAG {
            
         
-	public List<Integer> numerosImparesMayoresQuePreOrden (GeneralTree<Integer> ab,Integer n){
+	public static List<Integer> numerosImparesMayoresQuePreOrden (GeneralTree<Integer> ab,Integer n){
             List<Integer> lista=new LinkedList<>();
             if((!ab.isEmpty())){
                 lista=busquedaPreOrden(ab,n);
@@ -14,7 +14,7 @@ import java.util.Queue;
             return lista;
         }
         
-        private List<Integer> busquedaPreOrden (GeneralTree<Integer> ab,Integer n){
+        private static List<Integer> busquedaPreOrden (GeneralTree<Integer> ab,Integer n){
             List<Integer> lista=new LinkedList<>();
             if(ab.getData()!=null){
                 if((ab.getData()%2==1)&&(ab.getData()>n)){
@@ -27,7 +27,7 @@ import java.util.Queue;
             return lista;
         }
         
-	public List<Integer> numerosImparesMayoresQueInOrden (GeneralTree<Integer> ab,Integer n){
+	public static List<Integer> numerosImparesMayoresQueInOrden (GeneralTree<Integer> ab,Integer n){
 		List<Integer> lista=new LinkedList<>();
 		if((!ab.isEmpty())){
                     lista=busquedaInOrden(ab,n);
@@ -36,7 +36,7 @@ import java.util.Queue;
                 return lista;
 	}
         
-        private List<Integer> busquedaInOrden (GeneralTree<Integer> ab,Integer n){
+        private static List<Integer> busquedaInOrden (GeneralTree<Integer> ab,Integer n){
             List<Integer> lista=new LinkedList<>();
                 
             if(ab.hasChildren()){
@@ -57,7 +57,7 @@ import java.util.Queue;
             return lista;
         }
         
-	public List<Integer>numerosImparesMayoresQuePostOrden (GeneralTree<Integer> ab,Integer n){
+	public static List<Integer>numerosImparesMayoresQuePostOrden (GeneralTree<Integer> ab,Integer n){
             List<Integer> lista=new LinkedList<>();
             if((!ab.isEmpty())){
                 lista=busquedaPostOrden(ab,n);      
@@ -65,7 +65,7 @@ import java.util.Queue;
             return lista;
 	}
         
-        private List<Integer> busquedaPostOrden (GeneralTree<Integer> ab,Integer n){
+        private static List<Integer> busquedaPostOrden (GeneralTree<Integer> ab,Integer n){
             List<Integer> lista=new LinkedList<>();   
             for(GeneralTree<Integer> hijos:ab.getChildren()){
                 lista.addAll(busquedaPostOrden(hijos,n));
@@ -78,7 +78,7 @@ import java.util.Queue;
             return lista;
         }
         
-	public List<Integer> numerosImparesMayoresQuePorNiveles (GeneralTree<Integer> ab,Integer n){
+	public static List<Integer> numerosImparesMayoresQuePorNiveles (GeneralTree<Integer> ab,Integer n){
 		List<Integer> lista=new LinkedList<>();
 		if((!ab.isEmpty())){
                     lista = (busquedaPorNiveles(ab,n));
@@ -87,7 +87,7 @@ import java.util.Queue;
                 return lista;
 	}
 	
-	private List<Integer> busquedaPorNiveles (GeneralTree<Integer> ab,Integer n){
+	private static List<Integer> busquedaPorNiveles (GeneralTree<Integer> ab,Integer n){
             List<Integer> lista=new LinkedList<>();
             if(ab.getData()!=null && ((ab.getData()%2==1) && (ab.getData()>n)))
                 lista.add(ab.getData());

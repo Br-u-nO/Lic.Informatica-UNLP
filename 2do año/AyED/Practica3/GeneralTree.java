@@ -3,10 +3,9 @@ package Practica3;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.ArrayList;
 
 public class GeneralTree<T>{
-
+        
 	private T data;
 	private List<GeneralTree<T>> children = new LinkedList<>(); 
 
@@ -24,8 +23,8 @@ public class GeneralTree<T>{
 	public T getData() {
 		return data;
 	}
-
-	public void setData(T data) {
+        
+	private void setData(T data) {
 		this.data = data;
 	}
 
