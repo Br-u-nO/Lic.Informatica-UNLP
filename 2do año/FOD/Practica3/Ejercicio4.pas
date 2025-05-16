@@ -91,34 +91,6 @@ begin
 	close(a);
 end;
 
-procedure eliminarFlor (var a:tArchFlores);
-var
-	cod:integer;
-	flor,borrados:reg_flor;
-begin
-	reset(a);
-	writeln('------------- Eliminar Flores -------------');
-	writeln;
-	writeln('Escribe el codigo de la flor a eliminar: ');
-	readln(cod);
-	leer(a,borrados);
-	leer(a,flor);
-	while((flor.cod<>valorImp)and(flor.cod<>cod))do begin
-		leer(a,flor);
-	end;
-	if(flor.cod<>cod)then
-		writeln('No existe una flor con ese codigo')
-	else begin
-		seek(a,filePos(a)-1);
-		flor.cod:=filePos(a)*(-1);
-		write(a,borrados);
-		seek(a,0);
-		write(a,flor);
-	end;
-	writeln;
-	writeln(linea);
-	close(a);
-end;
 
 procedure listarFlores (var a:tArchFlores);
 var
@@ -143,9 +115,8 @@ begin
 	writeln;
 	writeln('1:Crear Archivo');
 	writeln('2:Agregar Flor');
-	writeln('3:Borrar Flor');
-	writeln('4:Listar Flores');
-	writeln('5:Finalizar Programa');
+	writeln('3:Listar Flores');
+	writeln('4:Finalizar Programa');
 	writeln();	
 	writeln;
 	writeln('Elige una de las opciones anteriores:');
@@ -162,11 +133,11 @@ begin
 	writeln('Escribe nombre del archivo');
 	readln(nombre);
 	assign(a,nombre);
-	while(b<5)do begin
+	while(b<4)do begin
 		case b of
 			1:crearArchivo(a);
 			2:begin
-				writeln('-------------- Agregar Flores --------------');
+				writeln('-------------- Agregar Flor --------------');
 				writeln('Escribir nombre de la flor:');
 				readln(nombre);
 				writeln('Escribir codigo de la flor:');
@@ -174,8 +145,7 @@ begin
 				agregarFlor(a,nombre,cod);
 				writeln(linea);
 			end;
-			3:eliminarFlor(a);
-			4:listarFlores(a);
+			3:listarFlores(a);
 		end;
 		menu(b);
 	end;
