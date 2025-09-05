@@ -68,7 +68,7 @@ begin
 	close(nov);
 end;
 
-procedure exportarArchivo (var nov:avo1;var txt:text);
+procedure exportarArchivo (var nov:avo1; var txt:text);
 var
 	n:novela;
 begin

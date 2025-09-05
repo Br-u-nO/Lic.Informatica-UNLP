@@ -86,6 +86,7 @@ begin
   else
     e.dni:=valorAlto
 end;
+
 procedure buscarnom (var emp:avo1);
 var
   nom:string50;
@@ -108,6 +109,7 @@ begin
    writeln;
    close(emp);
 end;
+
 procedure listarArchivo (var emp:avo1);
 var
   e:empleado;
@@ -246,6 +248,7 @@ end;
 procedure borrarEmpleado (var mae:avo1);
 var
 	emp:empleado;
+	borrador:integer;
 	nro:integer;
 begin
 	reset(mae);
@@ -257,15 +260,12 @@ begin
 	while (emp.nro<>nro)and(emp.dni<>valorAlto) do 
 		leer(mae,emp);
 	if(emp.nro=nro)then begin
-	leer(mae,emp);
-		while(emp.dni<>valorAlto)do begin
-			
-			seek(mae,filePos(mae)-2);
-			write(mae,emp);
-			seek(mae,filePos(mae)+1);
-			leer(mae,emp);
-		end;
-		seek(mae,filePos(mae)-1);
+		borrador := filePos(mae)-1;
+		seek(mae,fileSize(mae)-1);
+		leer(mae,emp);
+		seek(mae,borrador);
+		write(mae,emp);
+		seek(mae,fileSize(mae)-1);
 		truncate(mae);
 		writeln('Se a borrado al empleado correctamente');
 	end else
