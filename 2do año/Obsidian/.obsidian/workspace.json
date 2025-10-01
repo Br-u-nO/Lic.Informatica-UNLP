@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "0e0ac37dbf15e080",
@@ -171,12 +172,12 @@
   },
   "active": "c18e6cc586f7f8fb",
   "lastOpenFiles": [
-    "ING/Teoria 1/Métodos Interactivos.md",
-    "ING/Teoria 1/Elicitacion de Requerimientos.md",
+    "ING/Teoria 1/Retos y IS.md",
     "ING/Teoria 1/Teoría 1 - Elicitación Requerimientos.md",
+    "ING/Teoria 1/Elicitacion de Requerimientos.md",
+    "ING/Teoria 1/Métodos Interactivos.md",
     "ING/Teoria 1",
     "ING/Teoria 1/Fuentes de Requerimientos.md",
-    "ING/Teoria 1/Retos y IS.md",
     "ING/Teoría 1/Untitled.md",
     "OO1/Teoria 1/Untitled.md",
     "ING/Teoría 1",
