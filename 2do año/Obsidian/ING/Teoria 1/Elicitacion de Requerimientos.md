@@ -11,11 +11,34 @@ Como la elicitación de requerimientos es una actividad más social que tecnoló
 
 #### Problemas de comunicación
 
-- e
+- Dificultad de expresar las necesidades con claridad.
+- No ser conscientes de sus propias necesidades.
+- Miedo a parecer incompetentes por ignorancia tecnológica.
+- Conflictos personales o políticos.
+- Cultura y vocabulario diferente.
+- etc.
 
 #### Limitaciones cognitivas
 
-- k
+- No conocer el conflicto del problema.
+- Hacer suposiciones sobre el dominio o aspectos tecnológicos.
+- Hacer simplificaciones excesivas.
+
+#### Conducta humana
+
+- Conflictos y ambigüedades en los roles de los participantes.
+- Pasividad de clientes, usuarios o ingenieros de requisitos.
+- Temor a que el nuevo sistema lo deje sin trabajo.
+
+#### Técnicos
+
+- Complejidad del dominio del problema.
+- Complejidad de los requisitos.
+- Múltiples fuentes de requisitos.
+- Fuentes de información poco claras
 
 
+Las dos técnicas de elicitación son:
+
+[Métodos discretos]
 [[Métodos Interactivos]]
