@@ -5,13 +5,20 @@
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
+  "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "path:ING  ",
+      "query": "path:\"ING/Teoria 1\"  ",
       "color": {
         "a": 1,
         "rgb": 14701138
+      }
+    },
+    {
+      "query": "path:\"ING/Teoria 2\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 14725458
       }
     }
   ],
@@ -25,6 +32,6 @@
   "repelStrength": 10.7291666666667,
   "linkStrength": 0.895833333333333,
   "linkDistance": 248,
-  "scale": 0.5205574125335236,
+  "scale": 0.23738890433803303,
   "close": true
 }

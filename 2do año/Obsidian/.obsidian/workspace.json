@@ -90,6 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "ING/Teoria 1/Elicitacion de Requerimientos.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +100,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Elicitacion de Requerimientos"
             }
           },
           {
@@ -150,7 +151,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -165,18 +167,25 @@
   },
   "active": "c18e6cc586f7f8fb",
   "lastOpenFiles": [
+    "ING/Teoria 2/Historia de usuario.md",
+    "img/Pasted image 20251003155648.png",
+    "img/Pasted image 20251003155623.png",
+    "img/Pasted image 20251003155442.png",
+    "img/Pasted image 20251003150936.png",
+    "ING/Teoria 2/Técnicas de Especificación de Requerimientos de software.md",
+    "ING/Teoria 2/»Muestreo de la documentación, los formularios y los datos existentes.md",
+    "ING/Teoria 1/Retos y IS.md",
+    "ING/Teoria 1/Teoría 1 - Elicitación Requerimientos.md",
+    "ING/Teoria 1/Elicitacion de Requerimientos.md",
+    "ING/Teoria 2/Métodos discretos.md",
+    "ING/Teoria 2/Lluvia de Ideas (Brainstorming).md",
+    "ING/Teoria 2",
+    "ING/Teoria 2/Planeación conjunta de requerimientos (JRP o JAD).md",
     "ING/Teoria 1/Cuestionarios.md",
+    "ING/Teoria 1/Métodos Interactivos.md",
+    "img/Pasted image 20251001204942.png",
     "img",
     "ING/Teoria 1/Entrevistas.md",
-    "ING/Teoria 1/Teoría 1 - Elicitación Requerimientos.md",
-    "Untitled.base",
-    "Pasted image 20251001204942.png.md",
-    "img/Pasted image 20251001204942.png",
-    "ING/Teoria 1/Métodos Interactivos.md",
-    "Untitled 2.base",
-    "Untitled 1.base",
-    "ING/Teoria 1/Elicitacion de Requerimientos.md",
-    "ING/Teoria 1/Retos y IS.md",
     "ING/Teoria 1",
     "ING/Teoria 1/Fuentes de Requerimientos.md",
     "ING/Teoría 1/Untitled.md",
@@ -189,6 +198,8 @@
     "ISO/Teoria 1/lll.md",
     "ISO/Teoria 1",
     "ISO",
+    "ING.base",
+    "ISO.base",
     "OO1/Untitled 1.md",
     "OO1/Teoria 1.md",
     "Untitled.md",

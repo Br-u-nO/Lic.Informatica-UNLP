@@ -40,5 +40,5 @@ Como la elicitación de requerimientos es una actividad más social que tecnoló
 
 Las dos técnicas de elicitación son:
 
-[Métodos discretos]
+[[Métodos discretos]]
 [[Métodos Interactivos]]
