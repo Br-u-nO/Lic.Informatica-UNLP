@@ -16,8 +16,89 @@
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
+          },
+          {
+            "id": "730357ded377fd05",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ING/Teoría 3/Tipos de requerimientos.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Tipos de requerimientos"
+            }
+          },
+          {
+            "id": "8e2a5aeaced79dc4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ING/Teoría 3/Ingeniería de requerimientos.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Ingeniería de requerimientos"
+            }
+          },
+          {
+            "id": "f94c557608e8ded2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ING/Teoría 3/Estudio de viabilidad.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Estudio de viabilidad"
+            }
+          },
+          {
+            "id": "bade4798fdd27623",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ING/Teoría 3/Estudio de viabilidad.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Estudio de viabilidad"
+            }
+          },
+          {
+            "id": "b5872d89578c05c8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ING/Teoría 3/Técnicas de validación - Caso de uso.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Técnicas de validación - Caso de uso"
+            }
+          },
+          {
+            "id": "3137e4cacf9f272f",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
           }
-        ]
+        ],
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -165,14 +246,28 @@
       "bases:Create new base": false
     }
   },
-  "active": "c18e6cc586f7f8fb",
+  "active": "3137e4cacf9f272f",
   "lastOpenFiles": [
+    "ING/Teoría 3/Técnicas de validación - Caso de uso.md",
+    "ING/Teoría 3/Estudio de viabilidad.md",
+    "Técnicas de validación.md",
+    "ING/Teoría 3/Escenarios.md",
+    "ING/Teoría 3/Tipos de requerimientos.md",
+    "img/Pasted image 20251011154624.png",
+    "img/Pasted image 20251011154416.png",
+    "img/Pasted image 20251011154311.png",
+    "img/Pasted image 20251011153919.png",
+    "img/Pasted image 20251011153242.png",
+    "ING/Teoría 3/Ingeniería de requerimientos.md",
+    "img/Pasted image 20251011152506.png",
+    "ING/Teoria 2/Técnicas de Especificación de Requerimientos de software.md",
     "ING/Teoria 2/Historia de usuario.md",
+    "ING/Teoria 2/Planeación conjunta de requerimientos (JRP o JAD).md",
+    "img/Pasted image 20251011143447.png",
+    "ING/Teoría 3",
     "img/Pasted image 20251003155648.png",
     "img/Pasted image 20251003155623.png",
     "img/Pasted image 20251003155442.png",
-    "img/Pasted image 20251003150936.png",
-    "ING/Teoria 2/Técnicas de Especificación de Requerimientos de software.md",
     "ING/Teoria 2/»Muestreo de la documentación, los formularios y los datos existentes.md",
     "ING/Teoria 1/Retos y IS.md",
     "ING/Teoria 1/Teoría 1 - Elicitación Requerimientos.md",
@@ -180,10 +275,8 @@
     "ING/Teoria 2/Métodos discretos.md",
     "ING/Teoria 2/Lluvia de Ideas (Brainstorming).md",
     "ING/Teoria 2",
-    "ING/Teoria 2/Planeación conjunta de requerimientos (JRP o JAD).md",
     "ING/Teoria 1/Cuestionarios.md",
     "ING/Teoria 1/Métodos Interactivos.md",
-    "img/Pasted image 20251001204942.png",
     "img",
     "ING/Teoria 1/Entrevistas.md",
     "ING/Teoria 1",
@@ -199,12 +292,8 @@
     "ISO/Teoria 1",
     "ISO",
     "ING.base",
-    "ISO.base",
     "OO1/Untitled 1.md",
     "OO1/Teoria 1.md",
-    "Untitled.md",
-    "Hola.md",
-    "Untitled.canvas",
-    "Welcome.md"
+    "Untitled.canvas"
   ]
 }
