@@ -20,6 +20,13 @@
         "a": 1,
         "rgb": 14725458
       }
+    },
+    {
+      "query": "path:\"ING/Teoría 3\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 11657298
+      }
     }
   ],
   "collapse-display": false,
@@ -32,6 +39,6 @@
   "repelStrength": 10.7291666666667,
   "linkStrength": 0.895833333333333,
   "linkDistance": 248,
-  "scale": 0.23738890433803303,
+  "scale": 0.222158066816304,
   "close": true
 }
