@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "0e0ac37dbf15e080",
@@ -172,10 +171,10 @@
   },
   "active": "08b81918a9623339",
   "lastOpenFiles": [
+    "ING/Teoría 4/Técnicas de especificación de requerimientos.md",
     "ING/Teoria 2/Técnicas de Especificación de Requerimientos de software.md",
     "ING/Teoria 2/Historia de usuario.md",
     "ING/Teoria 2/Métodos discretos.md",
-    "ING/Teoría 4/Técnicas de especificación de requerimientos.md",
     "img/Pasted image 20251013184258.png",
     "img/{7BB1A323-F408-4444-8FD1-B0CA205DCD69}.png",
     "ING/Teoría 3/Técnicas de validación - Caso de uso.md",
